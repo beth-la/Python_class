@@ -10,6 +10,9 @@ _Brenda E. López Angeles_
 
 *3 febrero 2002*
 
+Esto es una prueba de como usar Markdown.
+Esto es una edición de forma remota desde GitHub
+
 - Listas 
 - Viñetas 
 
