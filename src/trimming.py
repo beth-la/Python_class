@@ -38,7 +38,8 @@ with open('data/4_input_adapters.txt','r') as archivo:
 for i in range(0,len(secuencias)):
     sin_adaptadores.append(secuencias[i][0][14:])
 
-
+# Abrimos un nuevo archivo que sera el output 
+# Ecribimos la lista con las secuencias en el archivo 
 
 my_file= open('data/Sec_sin_adaptadores.txt','w')
 my_file.write('\n'.join(sin_adaptadores))
