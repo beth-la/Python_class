@@ -25,11 +25,21 @@ See also
     
 '''
 
+# Abrir el archivo que contiene las secuencias deseadas
+# Asignar las secuencias a una lista
+
 with open('data/4_input_adapters.txt','r') as archivo:
     secuencias= [line.split("\n") for line in archivo]
     sin_adaptadores= []
+    
+# Excluimos la parte de la secuencia que contiene a los adaptadores
+# Estas nuevas secuencias las almacenamos en una lista nueva 
+
 for i in range(0,len(secuencias)):
     sin_adaptadores.append(secuencias[i][0][14:])
 
+
+
 my_file= open('data/Sec_sin_adaptadores.txt','w')
 my_file.write('\n'.join(sin_adaptadores))
+my_file.close()
