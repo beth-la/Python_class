@@ -30,6 +30,7 @@ En este reporitorio se encuentran scripts los cuales editan y manejan secuencias
 
 ## License 
 
+MIT license
  
 
  
