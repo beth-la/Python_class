@@ -4,11 +4,15 @@
 
 Este es un repositorio en el que encontrarás programas hechos en lenguaje de programación Python
 ## Structure 
-# docs: Documentación, notas en clase y archivos en formato .txt y .md
-# src: Programas de Python 
-# data: Archivos input-output para progrmas 
-# readme 
-# .gitignore 
+docs: Documentación, notas en clase y archivos en formato .txt y .md
+
+src: Programas de Python
+
+data: Archivos input-output para progrmas 
+
+readme 
+
+.gitignore 
 
 ## Motivation
 
