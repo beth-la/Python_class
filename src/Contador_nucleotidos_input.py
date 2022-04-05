@@ -29,7 +29,6 @@ See also
 
 ADN= input("Introduce una secuencia de ADN: ")
 
-# Tomando la secuencia guardada en la variable ADN, utilizamos el metodo count para contar la aparicion de cada letra dentro de la secuencia. 
-# El metodo .count() nos permite contar la cantidad de apariciones de los caracteres.
+# Obtenemos la frecuencia de aparicion de cad aletra.
 
 print(f"El total por base es: A:{ADN.count('A')} C:{ADN.count('C')} T:{ADN.count('T')} G:{ADN.count('G')}")
