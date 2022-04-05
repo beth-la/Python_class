@@ -8,15 +8,14 @@ Author
     Lopez A. Brenda E.
     
 Descripcion
-    Programa que genera un archivo fasta apartir de un archivo que contiene una secuencia de ADN 
-    y su encabezado.
+    Programa que genera un archivo fasta apartir de un archivo que contiene una secuencia de ADN.
     
 Category
     DNA sequence
     
 Usage
-    A partir de archivos que contengan una secuencia de ADN y su encabezado, podemos generar un archivo 
-    con formato fasta.
+    A partir de archivos que contengan una secuencia de ADN, podemos generar un archivo con formato fasta, unicamente 
+    cambiando la ruta del archivo.
     
 Arguments
     None
