@@ -1,5 +1,5 @@
 ''' Name 
-    Trimming.
+    Remove adapters.
     
 Version
     1.0
