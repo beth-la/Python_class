@@ -15,6 +15,7 @@ Usage
     el usuario debe ingresar cualquiera de las opciones permitidas para jugar: piedra, papel 
     o tijera. 
     Este programa considera como juggador 1 al usuario y jugador 2 a la computadora.
+    Si existe empate entre jugadores, ninguno obtiene el punto.
 
 Category
     Recreational
@@ -46,27 +47,25 @@ while computer_points < 2 and user_points < 2:
         "Ingresa alguna opcion para jugar: piedra, papel o tijera \n").lower()
     computer_choice = random.choice(computer)
 
-    print(f"La computadora elije {computer_choice}")
-
     # Si el usuario elige tijera
 
     #   Si la computadora elije tijera
     #   Si la computadora elije papel
     #   Si la computadora elije piedra
-    
-    #  Almacenar el conteo de puntos para cada jugador 
+
+    #  Almacenar el conteo de puntos para cada jugador
 
     if user_choice == 'tijera':
 
         if computer_choice == 'tijera':
-            print(f"{user_choice} empata con {computer_choice}, ¡Empate!")
+            print(f"La computadora elije {computer_choice}, ¡Empate!")
 
         if computer_choice == 'papel':
-            print(f"{user_choice} le gana a {computer_choice}, ¡Ganaste!")
+            print(f"La computadora elije {computer_choice}, ¡Ganaste!")
             user_points += 1
 
         if computer_choice == 'piedra':
-            print(f"{user_choice} pierde contra {computer_choice}, ¡Perdiste!")
+            print(f"La computadora elije {computer_choice}, ¡Perdiste!")
             computer_points += 1
 
     # Si el usuario elije papel
@@ -78,14 +77,14 @@ while computer_points < 2 and user_points < 2:
     if user_choice == 'papel':
 
         if computer_choice == 'tijera':
-            print(f"{user_choice} pierde contra {computer_choice}, ¡Perdiste!")
+            print(f"La computadora elije {computer_choice}, ¡Perdiste!")
             computer_points += 1
 
         if computer_choice == 'papel':
-            print(f"{user_choice} empata con {computer_choice}, ¡Empate!")
+            print(f"La computadora elije {computer_choice}, ¡Empate!")
 
         if computer_choice == 'piedra':
-            print(f"{user_choice} le gana a {computer_choice}, ¡Ganaste!")
+            print(f"La computadora elije {computer_choice}, ¡Ganaste!")
             user_points += 1
 
     # Si el usuario elije piedra
@@ -97,18 +96,19 @@ while computer_points < 2 and user_points < 2:
     if user_choice == 'piedra':
 
         if computer_choice == 'tijera':
-            print(f"{user_choice} le gana a {computer_choice}, ¡Ganaste!")
+            print(f"La computadora elije {computer_choice}, ¡Ganaste!")
             user_points += 1
 
         if computer_choice == 'papel':
-            print(f"{user_choice} pierde contra {computer_choice}, ¡Perdiste!")
+            print(f"La computadora elije {computer_choice}, ¡Perdiste!")
             computer_points += 1
 
         if computer_choice == 'piedra':
-            print(f"{user_choice} empata con {computer_choice}, ¡Empate!")
+            print(f"La computadora elije {computer_choice}, ¡Empate!")
 
-# Imprimir los puntos de cada jugador 
-# 
+# Imprimir los puntos de cada jugador
+# Se asigna el ganador segun el puntaje de cada jugador
+
 if user_points > computer_points:
     print(f"Ganaste con {user_points} contra {computer_points} puntos")
 
