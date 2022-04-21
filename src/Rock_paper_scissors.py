@@ -106,7 +106,7 @@ while computer_points < 2 and user_points < 2:
 # Se asigna el ganador segun el puntaje de cada jugador
 
 if user_points > computer_points:
-    print(f"Ganaste {user_name} con {user_points} contra {computer_points} puntos")
+    print(f"Ganaste {user_name}, con {user_points} contra {computer_points} puntos")
 
 else:
     print(f"Perdiste {user_name}, con {user_points} contra {computer_points} puntos")
