@@ -1,5 +1,5 @@
 ''' Name 
-    Fasta files program generator
+    fasta_files_program.py
     
 Version
     1.5
@@ -15,9 +15,7 @@ Category
     DNA sequence
     
 Usage
-    El programa nos permite generar archivos con formato fasta a partir de un primer archivo 
-    que contiene las secuencias, el archivo dado puede sustituirse por otro siempre y cuando 
-    cuenten con el mismo formato.
+    python fasta_files_program.py
     
 Arguments
     None
@@ -35,17 +33,22 @@ See also
 
 with open('data/dna_sequences.txt', 'r') as archivo:
     secuencias = [line.split('\t') for line in archivo]
+    # Te genera esto:
+    # >> [['seq_1   ATCGTACGATCGATCGATCGCTAGACGTATCG\n'], ['seq_2   actgatcgacgatcgatcgatcacgact\n'], ['seq_3   ACTGAC-ACTGT-ACTGTA----CATGTG']]
+    
+    
+    # secuencias = [line.split('   ') for line in archivo]
+    
+#secuencias[2][1] = secuencias[2][1].replace('-', '').upper()
 
 for secuencia in secuencias:
     secuencia.insert(0, '>')
     secuencia.insert(2, '\n')
-    secuencia[3] = secuencia[3].replace('-', '').upper()
 
 # Generar el archivo output
 # Escribir el contenido de la lista "secuencia" en el archivo
 # cerrar el archivo
-
 my_file = open('data/secuencias.fasta', 'w')
 for secuencia in secuencias:
-    my_file.write(' '.join(secuencia))
+    my_file.write(''.join(secuencia)) # Los strings vacios tambien existen
 my_file.close()
