@@ -54,7 +54,6 @@ while computer_points < 2 and user_points < 2:
 
     # Si el usuario elige tijera
 
-    #   Si la computadora elije tijera
     #   Si la computadora elije papel
     #   Si la computadora elije piedra
     #   Si es empate 
@@ -76,7 +75,6 @@ while computer_points < 2 and user_points < 2:
     # Si el usuario elije papel
 
     #   Si la computadora elije tijera
-    #   Si la computadora elije papel
     #   Si la computadora elije piedra
 
     if user_choice == 'papel':
@@ -93,7 +91,6 @@ while computer_points < 2 and user_points < 2:
 
     #   Si la computadora elije tijera
     #   Si la computadora elije papel
-    #   Si la computadora elije piedra
 
     if user_choice == 'piedra':
 
