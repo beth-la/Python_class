@@ -56,9 +56,10 @@ while computer_points < 2 and user_points < 2:
 
     #   Si la computadora elije papel
     #   Si la computadora elije piedra
-    #   Si es empate 
-
     #  Almacenar el conteo de puntos para cada jugador
+    
+    # Empate
+ 
     if user_choice == computer_choice:
         print(f"La computadora elije {computer_choice}, ¡Empate!")
         
