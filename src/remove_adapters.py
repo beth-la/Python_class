@@ -44,3 +44,14 @@ for i in range(0,len(secuencias)):
 my_file= open('data/Sec_sin_adaptadores.txt','w')
 my_file.write('\n'.join(sin_adaptadores))
 my_file.close()
+
+try:
+    archivo = open('data/4_input_adaptersk.txt')
+    print('file contents '+ archivo.read())
+except IOError as ex:
+    print("No se pudo encontrar el archivo: " + ex.strerror)
+finally:
+    archivo.close()
+    print("Archivo cerrado")
+
+    
