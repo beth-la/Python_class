@@ -45,13 +45,15 @@ my_file= open('data/Sec_sin_adaptadores.txt','w')
 my_file.write('\n'.join(sin_adaptadores))
 my_file.close()
 
+# Estructura Try y except del codigo:
+
 try:
     archivo = open('data/4_input_adaptersk.txt')
     print('file contents '+ archivo.read())
 except IOError as ex:
     print("No se pudo encontrar el archivo: " + ex.strerror)
 finally:
+# Cerrar archivo
     archivo.close()
-    print("Archivo cerrado")
 
     
