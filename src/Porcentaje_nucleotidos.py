@@ -9,7 +9,7 @@
 
 # Pedimos la ruta del archivo al usuario, esto se guardara en la variable my_file. 
 
-my_file= input("Inserta la ruta del archivo en el que se encuentra la secuencia ")
+my_file= input("Inserta la ruta del archivo en el que se encuentra la secuencia ")    
 
 # Con with open no es necesario cerrar el archivo al final
 # Del archivo obtenemos la longitud de la secuencia y la secuencia.
@@ -29,6 +29,10 @@ porcentaje_GC = (100 - porcentaje_AT)
 # Imprimimos los resultados obtenidos: 
 
 print(f"La proporción de AT y GC de la secuencia {secuencia_adn} es AT: {porcentaje_AT} GC: {porcentaje_GC}") 
+
+# Estructura Try y except del codigo:
+
+
 
     
     
