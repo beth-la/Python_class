@@ -11,6 +11,7 @@ Descripcion
     Programa que simula un juego de piedra papel o tijera.
     
 Usage
+    Python src/Rock_paper_scissors.py
     El programa se detiene cuando uno de los dos jugadores completa dos puntos, 
     el usuario debe ingresar cualquiera de las opciones permitidas para jugar: piedra, papel 
     o tijera. 
