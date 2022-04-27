@@ -10,14 +10,19 @@
 # Abrir el archivo con with open.
 # La variable ADN guarda el contenido del archivo dna.txt
 
-with open('data/dna.txt','r') as archivo:
-    ADN= archivo.read()
+try:
+    with open('data/dna.txt','r') as archivo:
+        ADN= archivo.read()
+        
+except IOError as io_error: 
+    print(f"El archivo {io_error.filename} no se encuentra. \n")
 
 # Creamos un nuevo archivo que tendra el formato fasta:
 # Escribimos el encabezado y la secuencia.
 
-my_file= open("data/dna.fasta","w")
-my_file.write(">sequence_name \n")
-my_file.write(ADN)
-my_file.close()
+else:
+    my_file= open("data/dna.fasta","w")
+    my_file.write(">sequence_name \n")
+    my_file.write(ADN)
+    my_file.close()
     
