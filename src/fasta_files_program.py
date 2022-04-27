@@ -49,3 +49,5 @@ my_file = open('data/secuencias.fasta', 'w')
 for secuencia in secuencias:
     my_file.write(' '.join(secuencia))
 my_file.close()
+
+
