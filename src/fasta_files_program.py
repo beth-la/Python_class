@@ -33,21 +33,29 @@ See also
 # La secuencia de ADN queda en la posicion 3 de la lista, si esta tiene algun guion "-", susituirlo por cadena vacia ''
 # Convertir las minusculas a mayusculas
 
-with open('data/dna_sequences.txt', 'r') as archivo:
-    secuencias = [line.split('\t') for line in archivo]
+# Agregar try y except para notificar al usuario si el archivo no existe:
 
-for secuencia in secuencias:
-    secuencia.insert(0, '>')
-    secuencia.insert(2, '\n')
-    secuencia[3] = secuencia[3].replace('-', '').upper()
+try:
+    with open('data/dna_sequences.txt', 'r') as archivo:
+        secuencias = [line.split('\t') for line in archivo]
+
+except IOError as io_error: 
+    print(f"El archivo {io_error.filename} no se encuentra. \n")
+    
+else:
+
+    for secuencia in secuencias:
+        secuencia.insert(0, '>')
+        secuencia.insert(2, '\n')
+        secuencia[3] = secuencia[3].replace('-', '').upper()
 
 # Generar el archivo output
 # Escribir el contenido de la lista "secuencia" en el archivo
 # cerrar el archivo
 
-my_file = open('data/secuencias.fasta', 'w')
-for secuencia in secuencias:
-    my_file.write(' '.join(secuencia))
-my_file.close()
+    my_file = open('data/secuencias.fasta', 'w')
+    for secuencia in secuencias:
+        my_file.write(' '.join(secuencia))
+    my_file.close()
 
 
