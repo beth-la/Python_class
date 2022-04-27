@@ -14,23 +14,29 @@ my_file= input("Inserta la ruta del archivo en el que se encuentra la secuencia 
 # Con with open no es necesario cerrar el archivo al final
 # Del archivo obtenemos la longitud de la secuencia y la secuencia.
 
-with open(my_file) as archivo:
-    secuencia_adn  = archivo.read()
-    longitud_secuencia = len(secuencia_adn)
+# Se agrega la estructura try-except para avisar al usuario si su ruta no es valida 
 
-# Calculamos el porcentaje de AT con una regla de tres:
+try:
+    with open(my_file) as archivo:
+        secuencia_adn  = archivo.read()
+        longitud_secuencia = len(secuencia_adn)
+        
+except IOError as io_error: 
+    print(f"La ruta {io_error.filename} no es valida, el archivo no fue encontrado. \n")
     
-porcentaje_AT = ((secuencia_adn.count('A') + secuencia_adn.count('T')) * 100 )/(longitud_secuencia)
+    # Calculamos el porcentaje de AT con una regla de tres:
 
-# El porcentaje de CG es el complemento: 
+else:  
+    porcentaje_AT = ((secuencia_adn.count('A') + secuencia_adn.count('T')) * 100 )/(longitud_secuencia)
 
-porcentaje_GC = (100 - porcentaje_AT)
+    # El porcentaje de CG es el complemento: 
 
-# Imprimimos los resultados obtenidos: 
+    porcentaje_GC = (100 - porcentaje_AT)
 
-print(f"La proporción de AT y GC de la secuencia {secuencia_adn} es AT: {porcentaje_AT} GC: {porcentaje_GC}") 
+    # Imprimimos los resultados obtenidos: 
 
-# Estructura Try y except del codigo:
+    print(f"La proporción de AT y GC de la secuencia {secuencia_adn} es AT: {porcentaje_AT} GC: {porcentaje_GC}") 
+
 
 
 
