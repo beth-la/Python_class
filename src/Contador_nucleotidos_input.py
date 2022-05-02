@@ -2,7 +2,7 @@
     Contador de nucleotidos con input.
     
 Version
-    1.0
+    1.5
     
 Author 
     Lopez A. Brenda E.
@@ -14,8 +14,7 @@ Category
     DNA sequence
     
 Usage
-    El programa nos permite obtener la frecuencia de aparición de cada nucleotido 
-    de una secuencia de ADN.
+    Python Contador_nucleotidos_input.py
     
 Arguments
     None
