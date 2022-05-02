@@ -27,7 +27,7 @@ See also
 # Pedimos al usuario ingrese una secuencia de ADN 
 # La secuencia  solicitada será guaradada en la variable ADN
 
-ADN= input("Introduce una secuencia de ADN: ")
+ADN= input("Introduce una secuencia de ADN: ").upper()
 
 # Tomando la secuencia guardada en la variable ADN, utilizamos el metodo count para contar la aparicion de cada letra dentro de la secuencia. 
 # El metodo .count() nos permite contar la cantidad de apariciones de los caracteres.
