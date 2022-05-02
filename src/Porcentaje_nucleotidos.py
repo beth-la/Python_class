@@ -1,11 +1,28 @@
-# Name: Calculo de porcentaje de nucleotidos
-# Version:
-# Author: Lopez A. Brenda E.
-# Descripcion: Programa que calcula el porcentaje de nucleotidos de una cadena de ADN almacenada en un archivo. 
-# Category: 
-# Usage:
-# Arguments:
-# See also:
+''' Name 
+    Calculo de porcentaje de nucleotidos 
+    
+Version
+    1.0
+    
+Author 
+    Lopez A. Brenda E.
+    
+Descripcion
+    Programa que calcula el procentaje de nucleotidos de una cadena de ADN almacenada en un archivo con formato .txt
+    
+Category
+    DNA sequence
+    
+Usage
+    Python src/Porcentaje_nucleotidos.py
+    
+Arguments
+    None
+    
+See also
+    None
+    
+'''
 
 # Pedimos la ruta del archivo al usuario, esto se guardara en la variable my_file. 
 
