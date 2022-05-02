@@ -2,7 +2,7 @@
     Fasta files program generator
     
 Version
-    1.5
+    2.0
     
 Author 
     Lopez A. Brenda E.
