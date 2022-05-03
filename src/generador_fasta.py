@@ -1,14 +1,28 @@
-# Name: Generador archivo fasta
-# Version:
-# Author: Lopez A. Brenda E.
-# Descripcion: Programa que genera un archivo fasta a partir de un archivo de ADN.
-# Category: 
-# Usage:
-# Arguments:
-# See also:
-
-# Abrir el archivo con with open.
-# La variable ADN guarda el contenido del archivo dna.txt
+''' Name 
+    Generador de archivo fasta
+    
+Version
+    1.5
+    
+Author 
+    Lopez A. Brenda E.
+    
+Descripcion
+    Programa que genera un archivo fasta apartir de un archivo que contiene una secuencia de ADN.
+    
+Category
+    DNA sequence
+    
+Usage
+    Python generador_fasta.py
+    
+Arguments
+    None
+    
+See also
+    None
+    
+'''
 
 try:
     with open('data/dna.txt','r') as archivo:
@@ -21,7 +35,7 @@ except IOError as io_error:
 # Escribimos el encabezado y la secuencia.
 
 else:
-    my_file= open("data/dna.fasta","w")
+    my_file= open("results/dna.fasta","w")
     my_file.write(">sequence_name \n")
     my_file.write(ADN)
     my_file.close()
