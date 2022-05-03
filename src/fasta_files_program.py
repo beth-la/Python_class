@@ -52,5 +52,3 @@ else:
     for i in range(0,len(format_seq)):
         my_file.write(" > seq_" + str(i+1) + "\n" + format_seq[i])
     my_file.close()
-
-
