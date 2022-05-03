@@ -14,8 +14,7 @@ Category
     DNA sequence
     
 Usage
-    El programa nos permite obtener las secuencias de ADN eliminando las secuencias 
-    que corresponden a adaptadores.
+    Python src/generador_fasta.py
     
 Arguments
     None
