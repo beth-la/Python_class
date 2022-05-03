@@ -50,8 +50,7 @@ user_points = 0
 
 while computer_points < 2 and user_points < 2:
 
-    user_choice = input(
-        "Ingresa alguna opcion para jugar: piedra, papel o tijera \n").lower()
+    user_choice = input("Ingresa alguna opcion para jugar: piedra, papel o tijera \n").lower()
     computer_choice = random.choice(computer)
 
     # Si el usuario elige tijera
@@ -64,6 +63,11 @@ while computer_points < 2 and user_points < 2:
  
     if user_choice == computer_choice:
         print(f"La computadora elije {computer_choice}, ¡Empate!")
+        
+    # Si el usuario ingresa una opción no valida: 
+    
+    if user_choice not in computer:
+        print(f"La opcion {user_choice} no es valida, intenta de nuevo")
         
     if user_choice == 'tijera':
         
@@ -114,3 +118,7 @@ if user_points > computer_points:
 else:
     print(f"Perdiste {user_name}, con {user_points} contra {computer_points} puntos")
 
+# En este caso no necesitamos poner bloques de try-except ya que ninguna entrada tiene el potencial de romper el codigo 
+# Aun si se trata de una entrada erronea, el programa seguira corriendo correctamente.
+# Para este codigo, si la entrada no es alguna de las opciones, se imprime un mensaje a pantalla, sin embargo, el codigo 
+# no se rompe. 
