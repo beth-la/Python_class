@@ -1,5 +1,5 @@
 ''' Name 
-    Remove adapters.
+    remove_adapters.py
     
 Version
     1.5
@@ -15,7 +15,7 @@ Category
     
 Usage
     Python src/generador_fasta.py
-    
+
 Arguments
     None
     
@@ -26,7 +26,6 @@ See also
 
 # Abrir el archivo que contiene las secuencias deseadas
 # Asignar las secuencias a una lista
-
 # Agregamos estructura try-except para avisar al usuario si es que su archivo no se encuentra.
 
 try:  
@@ -51,5 +50,6 @@ else:
     my_file= open('results/Sec_sin_adaptadores.txt','w')
     my_file.write('\n'.join(sin_adaptadores))
     my_file.close()
+
 
 

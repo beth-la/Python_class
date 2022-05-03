@@ -15,7 +15,7 @@ Category
     
 Usage
     Python generador_fasta.py
-    
+        
 Arguments
     None
     
