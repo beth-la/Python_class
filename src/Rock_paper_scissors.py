@@ -1,9 +1,10 @@
 
-''' Name 
+''' 
+Name 
     Rock paper scissors.
     
 Version
-    1.5
+    2.0
     
 Author 
     Lopez A. Brenda E.
