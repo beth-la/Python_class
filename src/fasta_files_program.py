@@ -15,7 +15,7 @@ Category
     DNA sequence
     
 Usage
-    src/fasta_files_program.py
+    Python src/fasta_files_program.py
     
 Arguments
     None
