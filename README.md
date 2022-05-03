@@ -31,4 +31,4 @@ Para desarrollar estos programas se utilizó Python 3.10.2
 En este reporitorio se encuentran scripts los cuales editan y manejan secuencias de ADN 
 
 ## License 
-
+MIT License
