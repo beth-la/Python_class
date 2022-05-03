@@ -31,3 +31,7 @@ ADN = input("Introduce una secuencia de ADN: ").upper()
 # Obtenemos la frecuencia de aparicion de cad aletra.
 
 print(f"El total por base es: A:{ADN.count('A')} C:{ADN.count('C')} T:{ADN.count('T')} G:{ADN.count('G')}")
+
+# En este caso no necesitamos poner bloques de try-except ya que ninguna entrada tiene el potencial de romper el codigo 
+# Aun si se trata de una entrada erronea, el programa seguira corriendo correctamente.
+# Por lo que no se amerita utilizar un bloque try-except
