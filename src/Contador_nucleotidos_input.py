@@ -27,7 +27,7 @@ See also
 # Pedimos al usuario ingrese una secuencia de ADN 
 # La secuencia  solicitada será guaradada en la variable ADN
 
-ADN= input("Introduce una secuencia de ADN: ").upper()
+ADN = input("Introduce una secuencia de ADN: ").upper()
 
 # Obtenemos la frecuencia de aparicion de cad aletra.
 
