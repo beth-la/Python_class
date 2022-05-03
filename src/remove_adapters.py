@@ -31,7 +31,7 @@ See also
 
 try:  
     with open('data/4_input_adapters.txt','r') as archivo:
-        secuencias= [line.split("\n") for line in archivo]
+        secuencias= [line for line in archivo]
         sin_adaptadores= []
         
 except IOError as io_error: 
@@ -43,7 +43,7 @@ except IOError as io_error:
 else:
     
     for i in range(0,len(secuencias)):
-        sin_adaptadores.append(secuencias[i][0][14:])
+        sin_adaptadores.append(secuencias[i][14:])
 
 # Abrimos un nuevo archivo que sera el output 
 # Ecribimos la lista con las secuencias en el archivo 
