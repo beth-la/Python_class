@@ -28,7 +28,7 @@ import argparse
 
 # Agregar paso de argumentos
 
-arg_parser = argparse.ArgumentParser(description="Calcula el porcentaje de AT y GC")
+arg_parser = argparse.ArgumentParser(description="Calcula el porcentaje de nucleotidos: AT y CG")
 
 arg_parser.add_argument("-i", "--input",
                     metavar="path/to/file",
