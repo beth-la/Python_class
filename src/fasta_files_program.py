@@ -71,6 +71,8 @@ else:
         my_file.write(" > seq_" + str(i+1) + "\n" + format_seq[i])
     my_file.close()
     
+  # Sí el usuario pide la ruta del archivo final:  
+    
     if arguments.output:
         print("El archivo fasta se encuentra en la ruta: results/secuencias.fasta")
     
