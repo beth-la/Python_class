@@ -32,8 +32,24 @@ See also
 
 # Agregar try y except para notificar al usuario si el archivo no existe:
 
+import argparse
+
+arg_parser = argparse.ArgumentParser(description="Crea archivos en formato fasta")
+arg_parser.add_argument("-i", "--input",
+                    metavar="path/to/file",
+                    help="File with gene sequences",
+                    required=True)
+
+arg_parser.add_argument("-o", "--output",
+                    help="Path for the output file",
+                    required=False)
+
+arguments = arg_parser.parse_args()
+
+# Archivo de prueba: data/dna_sequences.txt
+
 try:
-    with open('data/dna_sequences.txt', 'r') as archivo:
+    with open(arguments.input, 'r') as archivo:
         secuencias = [line for line in archivo]
 
 except IOError as io_error: 
@@ -53,3 +69,7 @@ else:
     for i in range(0,len(format_seq)):
         my_file.write(" > seq_" + str(i+1) + "\n" + format_seq[i])
     my_file.close()
+    
+    if arguments.output:
+        print("El archivo fasta se encuentra en la ruta: results/secuencias.fasta")
+    
