@@ -33,7 +33,7 @@ import argparse
 arg_parser = argparse.ArgumentParser(description="Generador de archivo con secuencia de ADN")
 arg_parser.add_argument("-i", "--input",
                     metavar="path/to/file",
-                    help="File with gene sequences",
+                    help="File with ADN sequences",
                     required=True)
 
 arg_parser.add_argument("-o", "--output",
