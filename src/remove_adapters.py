@@ -17,7 +17,9 @@ Usage
     Python src/generador_fasta.py
 
 Arguments
-    None
+    -h --help
+    -i --input 
+    -o --output 
     
 See also
     None
