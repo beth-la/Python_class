@@ -14,10 +14,13 @@ Category
     DNA sequence
     
 Usage
-    Python Contenido_AT.py
+    Python src/Contenido_AT.py
     
 Arguments
-    None
+    -h --help
+    -i --input 
+    -o --output 
+    -r --round
     
 See also
     None
