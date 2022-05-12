@@ -64,7 +64,7 @@ else:
     
     # Imprimimos los resultados obtenidos: 
 
-    print(f"La proporción de AT y GC de la secuencia {secuencia_adn} es AT: {porcentaje_AT} GC: {porcentaje_GC}") 
+    print(f"La proporción de AT y GC de la secuencia {secuencia_adn} es AT: {porcentaje_AT}% GC: {porcentaje_GC}%") 
 
 
 
