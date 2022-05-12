@@ -55,7 +55,7 @@ def aminoacid_per(aminoacid_sequence, aminoacid):
 # El bloque try-except nos dice si hubo un error al evaluar la funcion
     
 try:
-    assert aminoacid_per("MSRSLLLRFLLFLLLLPPL", "M") == 5
+    assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", "M") == 5
     assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", "r") == 10
     assert aminoacid_per("msrslllrfllfllllpplp", "L") == 50
     assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
@@ -67,4 +67,4 @@ except AssertionError as AssertionError:
 # Se llama a la funcion y se imprimen los resultados para el usuario: 
 
 total = aminoacid_per(arguments.sequence, arguments.aminoacid)
-print(f"El porcentaje del aminoacido {str(arguments.aminoacid).upper()} es {total}")
+print(f"El porcentaje del aminoacido {str(arguments.aminoacid).upper()} en la secuencia es: {total}")
