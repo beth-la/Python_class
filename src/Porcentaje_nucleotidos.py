@@ -32,7 +32,7 @@ arg_parser = argparse.ArgumentParser(description="Calcula el porcentaje de nucle
 
 arg_parser.add_argument("-i", "--input",
                     metavar="path/to/file",
-                    help="File with gene sequences",
+                    help="File with ADN sequences",
                     required=True)
 
 arguments = arg_parser.parse_args()
