@@ -32,11 +32,11 @@ if args.round:
 else:
     at_content = (a_count + t_count) / length
 
-with open("results/output.txt","w") as archivo_final:
+with open("results/output_final.txt","w") as archivo_final:
     archivo_final.write(f"AT content is {str(at_content)}")
 
 if args.output:
-    print("La ruta del archivo final es: results/output.txt")
+    print("La ruta del archivo final es: results/output_final.txt")
 
 print("AT content is " + str(at_content))
     
