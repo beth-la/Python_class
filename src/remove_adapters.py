@@ -30,7 +30,7 @@ See also
 
 import argparse
 
-arg_parser = argparse.ArgumentParser(description="Calcula el contenido de AT")
+arg_parser = argparse.ArgumentParser(description="Generador de archivo con secuencia de ADN")
 arg_parser.add_argument("-i", "--input",
                     metavar="path/to/file",
                     help="File with gene sequences",
