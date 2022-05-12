@@ -28,8 +28,24 @@ See also
 # Asignar las secuencias a una lista
 # Agregamos estructura try-except para avisar al usuario si es que su archivo no se encuentra.
 
+import argparse
+
+arg_parser = argparse.ArgumentParser(description="Calcula el contenido de AT")
+arg_parser.add_argument("-i", "--input",
+                    metavar="path/to/file",
+                    help="File with gene sequences",
+                    required=True)
+
+arg_parser.add_argument("-o", "--output",
+                    help="Path for the output file",
+                    required=False)
+
+arguments = arg_parser.parse_args()
+
+# Arhivo con el que se probo el codigo: data/4_input_adapters.txt
+
 try:  
-    with open('data/4_input_adapters.txt','r') as archivo:
+    with open(arguments.input,'r') as archivo:
         secuencias= [line for line in archivo]
         sin_adaptadores= []
         
@@ -50,6 +66,9 @@ else:
     my_file= open('results/Sec_sin_adaptadores.txt','w')
     my_file.write('\n'.join(sin_adaptadores))
     my_file.close()
+    
+    if arguments.output:
+        print("La ruta del archivo final es: results/Sec_sin_adaptadores.txt")
 
 
 
