@@ -63,7 +63,7 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
 # Bloque try-except nos permite saber si algo ocurrio mal con la prueba de la funcion
 
 try:
-    assert aminoacid_per("MSRSLLLRFLLFLLLLPPL", ["M"]) == 5
+    assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", ["M"]) == 5
     assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", ['M', 'L']) == 55
     assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP", ['F', 'S', 'L']) == 70
     assert aminoacid_per("MSRSLLLRFLLFLLLLPPLP") == 65
@@ -84,5 +84,5 @@ if arguments.aminoacids:
 
 else:
     total = aminoacid_per(aminoacid_sequence =arguments.sequence)
-    print(f"El porcentaje de los aminoacidos hidrofilicos: A, I, L, M, F, W, Y, V es {total} %")
+    print(f"El porcentaje de los aminoacidos hidrofilicos: A, I, L, M, F, W, Y, V en la secuencia es: {total} %")
     
