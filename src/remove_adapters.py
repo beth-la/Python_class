@@ -66,7 +66,7 @@ else:
 # Ecribimos la lista con las secuencias en el archivo 
 
     my_file= open('results/Sec_sin_adaptadores.txt','w')
-    my_file.write('\n'.join(sin_adaptadores))
+    my_file.write(''.join(sin_adaptadores))
     my_file.close()
     
     if arguments.output:
