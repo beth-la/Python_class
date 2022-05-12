@@ -24,8 +24,26 @@ See also
     
 '''
 
+import argparse
+
+# Declarando argumentos para pasarlos por teclado:
+
+arg_parser = argparse.ArgumentParser(description="Calcula el contenido de AT")
+arg_parser.add_argument("-i", "--input",
+                    metavar="path/to/file",
+                    help="File with gene sequences",
+                    required=True)
+
+arg_parser.add_argument("-o", "--output",
+                    help="Path for the output file",
+                    required=False)
+
+arguments = arg_parser.parse_args()
+
+# Archivo con el que se probó el codigo: data/dna.txt
+
 try:
-    with open('data/dna.txt','r') as archivo:
+    with open(arguments.input,'r') as archivo:
         ADN= archivo.read()
         
 except IOError as io_error: 
@@ -35,8 +53,13 @@ except IOError as io_error:
 # Escribimos el encabezado y la secuencia.
 
 else:
-    my_file= open("results/dna.fasta","w")
+    my_file= open("results/dna_fasta_files.fasta","w")
     my_file.write(">sequence_name \n")
     my_file.write(ADN)
     my_file.close()
+
+# Si el usuario pide ruta del archivo fasta:
+    
+    if arguments.output:
+        print("El archivo fasta se encuentra en la ruta: results/dna.fasta")
     
