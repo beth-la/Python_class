@@ -17,7 +17,8 @@ Usage
     Python src/Porcentaje_nucleotidos.py
     
 Arguments
-    None
+    -h --help
+    -i --input 
     
 See also
     None
