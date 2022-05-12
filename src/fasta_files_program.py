@@ -19,7 +19,9 @@ Usage
     Python src/fasta_files_program.py
     
 Arguments
-    None
+    -h --help
+    -i --input 
+    -o --output 
     
 See also
     None
