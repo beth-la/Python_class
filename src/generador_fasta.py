@@ -53,7 +53,7 @@ except IOError as io_error:
 # Escribimos el encabezado y la secuencia.
 
 else:
-    my_file= open("results/dna_fasta_files.fasta","w")
+    my_file= open("results/dna.fasta","w")
     my_file.write(">sequence_name \n")
     my_file.write(ADN)
     my_file.close()
