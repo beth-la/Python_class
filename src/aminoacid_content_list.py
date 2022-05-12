@@ -77,7 +77,7 @@ except AssertionError as AssertionError:
 
 if arguments.aminoacids:  
     total = aminoacid_per(aminoacid_sequence =arguments.sequence, aminoacid_list = arguments.aminoacids)
-    print(f"El porcentaje de los aminoacidos {str(arguments.aminoacids).upper()} es: {total} %")
+    print(f"El porcentaje de los aminoacidos {str(arguments.aminoacids).upper()} en la secuencia es: {total} %")
     
 # Si el usuario no da la lista de aminoacidos 
 # Se imprime el contenido de aminoacidos hidrofilicos en la secuencia dada
