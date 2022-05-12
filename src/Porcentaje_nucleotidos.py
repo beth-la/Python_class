@@ -26,6 +26,8 @@ See also
 
 import argparse
 
+# Agregar paso de argumentos
+
 arg_parser = argparse.ArgumentParser(description="Calcula el porcentaje de AT y GC")
 
 arg_parser.add_argument("-i", "--input",
