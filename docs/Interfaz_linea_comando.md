@@ -15,6 +15,11 @@ En la posición 0 de la lista se guarda siempre el nombre del archivo.
 
 Guarda los argumentos en el orden en el que son dados.
 
+## Tipos de argumentos 
+
+- Posicionales: valor del argumento 
+- Opcional
+
  ## argparse
 
 Se necesita utilizar el método:
