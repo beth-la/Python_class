@@ -35,9 +35,7 @@ arg_parser.add_argument("-i", "--input",
 
 arguments = arg_parser.parse_args()
 
-# Pedimos la ruta del archivo al usuario, esto se guardara en la variable my_file. 
-
-#my_file= input("Inserta la ruta del archivo en el que se encuentra la secuencia ")    
+# Pedimos la ruta del archivo al usuario, esto se guardara en la variable my_file.   
 
 # Con with open no es necesario cerrar el archivo al final
 # Del archivo obtenemos la longitud de la secuencia y la secuencia.
