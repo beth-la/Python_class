@@ -30,7 +30,7 @@ See also
 # Generar una lista que contendra las secuencias sin  guiones y en mayusculas 
 # Las secuencias se encuentran a partir de la posicion 5 del string 
 
-# Agregar try y except para notificar al usuario si el archivo no existe:
+# Agregar argumentos:
 
 import argparse
 
@@ -47,6 +47,7 @@ arg_parser.add_argument("-o", "--output",
 arguments = arg_parser.parse_args()
 
 # Archivo de prueba: data/dna_sequences.txt
+# Agregar try y except para notificar al usuario si el archivo no existe:
 
 try:
     with open(arguments.input, 'r') as archivo:
