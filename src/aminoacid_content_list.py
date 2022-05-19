@@ -49,6 +49,17 @@ arguments = arg_parser.parse_args()
 # Se obtiene el porcentaje de aminoacidos
 
 def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W','Y','V']):
+    
+    '''
+    Returns the percentage of aminoacids in a sequence 
+        Parameters:
+            aminoacid_sequence (str): sequence of aminoacids given by the user 
+            aminoacid_list (list): aminoacids to calculate the percentage, by default ['A','I','L','M','F','W','Y','V']
+        
+        Returns:
+            percentage (float): aminoacids percentage 
+    '''
+    
     length = len(aminoacid_sequence)
     aminoacid_count = 0
     
@@ -58,6 +69,8 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     percentage = (aminoacid_count * 100)/ length
     
     return(percentage)
+
+
 
 # Nos aseguramos de que la funcion devuelva los resultados correctos 
 # Bloque try-except nos permite saber si algo ocurrio mal con la prueba de la funcion
@@ -85,4 +98,5 @@ if arguments.aminoacids:
 else:
     total = aminoacid_per(aminoacid_sequence =arguments.sequence)
     print(f"El porcentaje de los aminoacidos hidrofilicos: A, I, L, M, F, W, Y, V en la secuencia es: {total} %")
+    
     
