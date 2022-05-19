@@ -47,6 +47,17 @@ arguments = arg_parser.parse_args()
 # Se calcula el porcentaje y se devuelve el valor
 
 def aminoacid_per(aminoacid_sequence, aminoacid):
+    
+    '''
+    Returns the percentage of aminoacids in a sequence 
+        Parameters:
+            aminoacid_sequence (str): sequence of aminoacids given by the user 
+            aminoacid_list (str): aminoacid to calculate the percentage
+        
+        Returns:
+            percentage (float): aminoacid percentage 
+    '''
+    
     sequence_length = len(aminoacid_sequence)
     percentage = (aminoacid_sequence.upper().count(aminoacid.upper()) * 100)/ sequence_length
     return(percentage)
