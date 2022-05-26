@@ -2,7 +2,7 @@
     Aminoacid content with list 
     
 Version
-    1.0
+    1.1
     
 Author 
     Lopez A. Brenda E.
@@ -14,7 +14,7 @@ Category
     Aminoacid sequence
     
 Usage
-    Python src/aminoacid_content_list.py
+    Python src/aminoacid_content_list.py [-h] -s SEQUENCE [-a AMINOACIDS]
     
 Arguments
     -h --help
@@ -33,10 +33,12 @@ import argparse
 arg_parser = argparse.ArgumentParser(description="Obtener el contenido de aminoacidos")
 arg_parser.add_argument("-s", "--sequence",
                     help="sequence of aminoacids",
+                    metavar='str',
                     required=True)
 
 arg_parser.add_argument("-a", "--aminoacids",
                     help="Aminoacidos a buscar",
+                    metavar='list',
                     type = list,
                     required=False) 
            
@@ -63,8 +65,8 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     length = len(aminoacid_sequence)
     aminoacid_count = 0
     
-    for i in range(0,len(aminoacid_list)):
-        aminoacid_count += str(aminoacid_sequence).upper().count(str(aminoacid_list[i]).upper())
+    for i in aminoacid_list:
+        aminoacid_count += aminoacid_sequence.upper().count([i].upper())
         
     percentage = (aminoacid_count * 100)/ length
     
