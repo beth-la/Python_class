@@ -14,7 +14,7 @@ Category
     DNA sequence
     
 Usage
-    Python src/Porcentaje_nucleotidos.py
+    Python src/Porcentaje_nucleotidos.py -i INPUT 
     
 Arguments
     -h --help
