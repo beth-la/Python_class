@@ -14,7 +14,7 @@ Category
     DNA sequence
     
 Usage
-    Python src/Contenido_AT.py
+    Python src/Contenido_AT.py -i INPUT -o OUTPUT -r ROUND
     
 Arguments
     -h --help
