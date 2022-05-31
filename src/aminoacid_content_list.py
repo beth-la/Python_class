@@ -98,5 +98,3 @@ if arguments.aminoacids:
 else:
     total = aminoacid_per(aminoacid_sequence =arguments.sequence)
     print(f"El porcentaje de los aminoacidos hidrofilicos: A, I, L, M, F, W, Y, V en la secuencia es: {total} %")
-    
-    
