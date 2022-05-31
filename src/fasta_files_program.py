@@ -16,7 +16,7 @@ Category
     DNA sequence
     
 Usage
-    Python src/fasta_files_program.py -i INTPUT -o OUTPUT
+    Python src/fasta_files_program.py -i path/to/file [-o OUTPUT]
     
 Arguments
     -h --help
