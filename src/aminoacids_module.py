@@ -1,15 +1,30 @@
-# Modulo de aminoacidos 
+'''
+Module name
+    Aminoacids module
+
+Description 
+    Modulo que contiene funciones que nos permiten trabajar con secuencias de nucleotidos.
+    
+Version
+    1.0
+    
+Author 
+    Lopez A. Brenda E.
+
+Functions
+    aminoacid_per
+    
+''' 
 
 def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W','Y','V']):
-    
     '''
-    Returns the percentage of aminoacids in a sequence 
+    Calcula el porcentaje de aminoacidos en una seuencia 
         Parameters:
-            aminoacid_sequence (str): sequence of aminoacids given by the user 
-            aminoacid_list (list): aminoacids to calculate the percentage, by default ['A','I','L','M','F','W','Y','V']
+            aminoacid_sequence (str): secuencia de aminoacidos dada por el usuario
+            aminoacid_list (list): aminoacidos a calcular el porcentaje, por default ['A','I','L','M','F','W','Y','V']
         
         Returns:
-            percentage (float): aminoacids percentage 
+            percentage (float): porcentaje de aminoacidos 
     '''
     
     length = len(aminoacid_sequence)
@@ -22,18 +37,3 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     
     return(percentage)
 
-def aminoacid_per(aminoacid_sequence, aminoacid):
-    
-    '''
-    Returns the percentage of aminoacids in a sequence 
-        Parameters:
-            aminoacid_sequence (str): sequence of aminoacids given by the user 
-            aminoacid_list (str): aminoacid to calculate the percentage
-        
-        Returns:
-            percentage (float): aminoacid percentage 
-    '''
-    
-    sequence_length = len(aminoacid_sequence)
-    percentage = (aminoacid_sequence.upper().count(aminoacid.upper()) * 100)/ sequence_length
-    return(percentage)
