@@ -14,7 +14,7 @@ Category
     DNA sequence
     
 Usage
-    Python src/generador_fasta.py -i INPUT -o OUTPUT
+    Python src/generador_fasta.py -i path/to/file [-o OUTPUT]
 
 Arguments
     -h --help
