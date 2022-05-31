@@ -1,4 +1,26 @@
-# Modulo de ADN 
+'''
+Module name
+    ADN module
+
+Description 
+    Modulo que contiene funciones que nos permiten trabajar con secuencias de ADN, contar y obtener 
+    porcentajes de nucleotidos; obtener archivos en formato fasta, etc. 
+
+Version
+    1.0
+    
+Author 
+    Lopez A. Brenda E.
+
+Functions
+    at_content
+    count_dna
+    delete_adapters 
+    fasta_files
+    gc_content
+    nucleotide_percentage 
+    
+'''
 
 def count_dna(dna):
     '''
@@ -15,7 +37,7 @@ def count_dna(dna):
     dna_count.append(dna.upper().count('C'))
     return(dna_count)
 
-def AT_content(pathfile, flag_round = 0):
+def at_content(pathfile, flag_round = 0):
     '''
     Regresa la proporcion de AT en una secuencia de ADN
         Parameters:
@@ -38,7 +60,7 @@ def AT_content(pathfile, flag_round = 0):
         
     return(at_content)
 
-def GC_content(pathfile, flag_round = 0):
+def gc_content(pathfile, flag_round = 0):
     '''
     Regresa la proporcion de GC en una secuencia de ADN
         Parameters:
@@ -103,6 +125,27 @@ def delete_adapters(filepath_in, filepath_out = "data/file_adapters"):
     my_file.write(''.join(sin_adaptadores))
     my_file.close()
     return(filepath_out)
+
+def fasta_files(filepath_in, filepath_out = "data/fasta_file.fasta"):
+    '''
+    Genera un archivo con formato fasta.
+        Parameters:
+            filepath_in (str): ruta del archivo que contiene la secuencia de ADN 
+            filepath_out (str): ruta del archivo final que contendra el formato fasta deseado
+        Returns:
+            filepath_out (str): ruta del archivo final
+    '''
+    with open(filepath_in, 'r') as archivo:
+        secuencias = [line for line in archivo]
     
+    format_seq = [secuencia[5:].upper().replace('-','') for secuencia in secuencias]
+
+    my_file = open(filepath_out, 'w')
+    
+    for i in range(0,len(format_seq)):
+        my_file.write(" > seq_" + str(i+1) + "\n" + format_seq[i])
+    my_file.close()
+    
+    return(filepath_out)
     
     
