@@ -14,7 +14,7 @@ Category
     DNA sequence
     
 Usage
-    Python src/generador_fasta.py
+    Python src/generador_fasta.py -i INPUT -o OUTPUT
 
 Arguments
     -h --help
@@ -39,7 +39,7 @@ arg_parser.add_argument("-i", "--input",
                     required=True)
 
 arg_parser.add_argument("-o", "--output",
-                    help="Path for the output file",
+                    help="Flag argument, prints the path of the output file",
                     required=False)
 
 arguments = arg_parser.parse_args()
