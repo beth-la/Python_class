@@ -146,4 +146,3 @@ def fasta_files(filepath_in, filepath_out = "data/fasta_file.fasta"):
     
     return(filepath_out)
     
-    
