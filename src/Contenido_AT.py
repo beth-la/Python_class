@@ -37,7 +37,7 @@ arg_parser.add_argument("-i", "--input",
                     required=True)
 
 arg_parser.add_argument("-o", "--output",
-                    help="Path for the output file",
+                    help="Flag argument, prints the path of the output file",
                     required=False)
          
 arg_parser.add_argument("-r", "--round",
