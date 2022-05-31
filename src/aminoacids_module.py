@@ -36,4 +36,3 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     percentage = (aminoacid_count * 100)/ length
     
     return(percentage)
-
