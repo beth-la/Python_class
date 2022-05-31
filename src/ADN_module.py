@@ -83,8 +83,6 @@ def gc_content(pathfile, flag_round = 0):
         
     return(gc_content)
 
-path = "data/dna.txt"
-
 def nucleotide_percentage(filepath):
     '''
     Obtiene el porcentaje de nucleotidos (AT y GC) en una secuencia de ADN
