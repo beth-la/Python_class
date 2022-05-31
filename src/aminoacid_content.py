@@ -14,7 +14,7 @@ Category
     Aminoacid sequence
     
 Usage
-    Python src/aminoacid_content.py
+    Python src/aminoacid_content.py -s sequence/aminoacids -a aminoacid
     
 Arguments
     -h --help
