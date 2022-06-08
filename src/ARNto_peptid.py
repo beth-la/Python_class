@@ -27,6 +27,7 @@ See also
     '''
 
 # Importando argparse 
+# Importando aminoacids_module
 # Asignando los argumentos que recibe el programa
 
 import argparse
