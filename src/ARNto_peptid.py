@@ -96,7 +96,7 @@ aminoacid_seq = traducction(arguments.sequence)
 
 if arguments.aminoacids:  
     total = aminoacid_per(aminoacid_sequence = aminoacid_seq, aminoacid_list = arguments.aminoacids)
-    print(f"El porcentaje de los aminoacidos: {''.join(arguments.aminoacids).upper()} en la secuencia {aminoacid_seq} es: {total} %")
+    print(f"El porcentaje de los aminoacidos: {' '.join(arguments.aminoacids).upper()} en la secuencia {aminoacid_seq} es: {total} %")
     
 # Si el usuario no da la lista de aminoacidos 
 # Se imprime el contenido de aminoacidos hidrofilicos en la secuencia dada
