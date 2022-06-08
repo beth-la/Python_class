@@ -37,15 +37,14 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     
     return(percentage)
 
-def traducction(arn_sequence):
+def traducction(secuencia):
     '''
     Convierte una secuencia de ARN en una secuencia de aminoacidos.
         Parameters:
-            arn_sequence (str): Cadena de ARN, separada en tripletes.
+            arn_sequence (list): Lista de tripletes de ARN.
         Returns:
             peptid (str): Cadena de aminoacidos generada.
     '''
-    secuencia = arn_sequence.split()
     peptid = []
     for codon in secuencia:
         # Ala 
