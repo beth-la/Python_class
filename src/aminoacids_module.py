@@ -107,4 +107,7 @@ def traducction(secuencia):
         # Tyr
         if codon == 'UAU' or codon == 'UAC':
             peptid.append('Y')
+        # STOP
+        if codon == 'UAA' or codon == 'UGA' or codon == 'UAG':
+            peptid.append('-STOP-')
     return("".join(peptid))
