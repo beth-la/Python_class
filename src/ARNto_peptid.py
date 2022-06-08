@@ -1,4 +1,5 @@
-''' Name 
+''' 
+Name 
     ARN to peptid and aminoacid percentage.
     
 Version
@@ -24,7 +25,7 @@ Arguments
     
 See also
     None
-    '''
+'''
 
 # Importando argparse 
 # Importando aminoacids_module
