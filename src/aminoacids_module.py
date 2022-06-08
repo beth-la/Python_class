@@ -3,7 +3,8 @@ Module name
     Aminoacids module
 
 Description 
-    Modulo que contiene funciones que nos permiten trabajar con secuencias de nucleotidos.
+    Modulo que contiene funciones que nos permiten trabajar con secuencias de aminoacidos y cadenas 
+    de ARN.
     
 Version
     1.0
