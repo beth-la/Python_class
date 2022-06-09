@@ -16,12 +16,13 @@ Category
     Aminoacid sequence
     
 Usage
-    Python src/ARNto_peptid.py -s ARNsequence -a aminoacids 
+    Python src/ARNto_peptid.py -s ARNsequence [-a AMINOACIDS]
     Python src/ARNto_peptid.py -s AUG UCU CGU UCC UUA UUG CUU CGA UUU UUA UUG UUC UUG CUC CUA CUG CCU CCC CUG CCA -a M
 Arguments
+
     -h --help
     -s --sequence
-    -a --aminoacids
+    -a --aminoacids 
     
 See also
     None
