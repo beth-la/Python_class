@@ -72,7 +72,7 @@ def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W',
     aminoacid_count = 0
     
     for i in range(0,len(aminoacid_list)):
-        aminoacid_count += str(aminoacid_sequence).upper().count(str(aminoacid_list[i]).upper())
+        aminoacid_count += str(aminoacid_sequence).count(str(aminoacid_list[i]).upper())
         
     percentage = (aminoacid_count * 100)/ length
     
