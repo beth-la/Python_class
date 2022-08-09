@@ -5,7 +5,7 @@ Version
     1.0
     
 Author 
-    Lopez A. Brenda E.
+    Lopez Angeles Brenda Elizabeth
     
 Descripcion
     Programa que dada una secuencia de ADN calcula el contenido de AT.
