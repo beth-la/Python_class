@@ -5,7 +5,7 @@ Version
     1.5
     
 Author 
-    Lopez A. Brenda E.
+    Lopez A. Brenda.
     
 Descripcion
     Programa que genera un archivo fasta apartir de un archivo que contiene una secuencia de ADN.
