@@ -42,4 +42,15 @@ arg_parser.add_argument("-r", "--region",
 
 args = arg_parser.parse_args()
 
+with open(args.file, "r") as seq_file:
+    dna = seq_file.read()
+    
+def evaluate(dna):
+    if(re.search("[^ATGC]+", dna)):
+        return(0)
+    else:
+        return(1)
+
+prueba = evaluate(dna)
+print(prueba)
 
