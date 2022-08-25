@@ -14,16 +14,15 @@ Category
     DNA sequence
     
 Usage
-    Python rich_at.py -f path/to/file [-n ] 
+    Python rich_at.py -f path/to/file [-s ] 
         
 Arguments
     -h --help
     -f --file 
-    -r --region
+    -s --search
     
 See also
     None
-    phy
 '''
 
 import argparse
@@ -53,7 +52,7 @@ def evaluate(dna):
     else:
         return(1)
 
-def find(dna, at=2):
+def find_regions(dna, at=2):
     at_rich = re.findall("A+|T+",dna)
     at_regions = [islas for islas in at_rich if len(islas) >= at]
     print(at_regions)
@@ -62,7 +61,7 @@ go_on = evaluate(dna)
 
 if go_on:
     if args.search:
-        ans = find(dna,args.search)
+        ans = find_regions(dna,args.search)
     else:
-        ans = find(dna)
+        ans = find_regions(dna)
         
