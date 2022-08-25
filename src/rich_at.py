@@ -5,7 +5,7 @@ Version
     1.0
     
 Author 
-    Lopez A. Brenda.
+    Lopez Angeles Brenda E. 
     
 Descripcion
     Programa que busca regiones ricas en AT
@@ -23,7 +23,7 @@ Arguments
     
 See also
     None
-    
+    phy
 '''
 
 import argparse
@@ -35,22 +35,34 @@ arg_parser.add_argument("-f", "--file",
                     help="Archivo con secuencia de ADN",
                     required=True)
          
-arg_parser.add_argument("-r", "--region",
-                    help="Tamaño minimo a buscar AT",
+arg_parser.add_argument("-s", "--search",
+                    help="cantidad minima de AT a buscar",
                     type=int,
                     required=False)
 
 args = arg_parser.parse_args()
 
 with open(args.file, "r") as seq_file:
-    dna = seq_file.read()
+    dna = seq_file.read().upper()
     
 def evaluate(dna):
-    if(re.search("[^ATGC]+", dna)):
+    not_dna = re.search("[^ATGC]+", dna)
+    if(not_dna):
+        print(f"Existen caracteres no validos en tu archivo, en las coordenadas: {not_dna.span()}")
         return(0)
     else:
         return(1)
 
-prueba = evaluate(dna)
-print(prueba)
+def find(dna, at=2):
+    at_rich = re.findall("A+|T+",dna)
+    at_regions = [islas for islas in at_rich if len(islas) >= at]
+    print(at_regions)
+            
+go_on = evaluate(dna)
 
+if go_on:
+    if args.search:
+        ans = find(dna,args.search)
+    else:
+        ans = find(dna)
+        
