@@ -61,14 +61,16 @@ def find_regions(dna, at=2):
     return(0)
                
 #go_on = evaluate(dna)
+prueba = find_regions(dna)
+print(prueba)
 
-if evaluate(dna):
-    if args.search:
-        ans = find_regions(dna,args.search)
-        print(ans)
-    else:
-        ans = find_regions(dna)
-        print(ans)
+#if evaluate(dna):
+#    if args.search:
+#        ans = find_regions(dna,args.search)
+#        print(ans)
+#    else:
+#        ans = find_regions(dna)
+#        print(ans)
 
 #at_rich = re.finditer("A+|T+",dna)
 #for islas in at_rich:
