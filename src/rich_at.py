@@ -49,7 +49,7 @@ with open(args.file, "r") as seq_file:
 
 def evaluate(dna):
     '''
-    Evalua si el archivo contienealgun caracter diferente a los permitidos [ATGC].
+    Evalua si el archivo contiene algun caracter diferente a los permitidos [ATGC].
         Parameters:
             dna (str): secuencia de ADN a procesar.
         Returns:
