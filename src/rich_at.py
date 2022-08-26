@@ -55,10 +55,20 @@ def evaluate(dna):
 
 def find_regions(dna, at=2):
     at_rich = re.finditer("A+|T+",dna)
-    for islas in at_rich:
-        if len(islas.group()) >= at:
-            print(f"Se encontro esta region rica en AT {islas.group()} en la posicion {islas.span()}")
+    #if type(at_rich) is str:
+    #for islas in at_rich:
+        #if islas is not str:
+        #    print("No se encontraron regiones")
+    #    print(type(islas.group))
+    #    if len(islas.group()) >= at:
+    #        print(f"Se encontro esta region rica en AT {islas.group()} en la posicion {islas.span()}")
+    #else:
+        #print(at_rich)
+        #print("No se encontraron regiones ricas en AT")
     return(0)
+
+prueba = evaluate(dna)
+print(prueba)
 
 if evaluate(dna):
     if args.search:
