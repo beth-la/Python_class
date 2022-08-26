@@ -25,10 +25,11 @@ Arguments
 See also
     None
 '''
-
+# Importamos librerias
 import argparse
 import re 
 
+# Paso de argumentos mediante argparse
 arg_parser = argparse.ArgumentParser(description="Search AT rich regions")
 arg_parser.add_argument("-f", "--file",
                     metavar="path/to/file",
@@ -42,10 +43,19 @@ arg_parser.add_argument("-s", "--search",
 
 args = arg_parser.parse_args()
 
+# Abrimos el archivo y extraemos su contenido
 with open(args.file, "r") as seq_file:
     dna = seq_file.read().upper()
-    
+
 def evaluate(dna):
+    '''
+    Evalua si el archivo contienealgun caracter diferente a los permitidos [ATGC].
+        Parameters:
+            dna (str): secuencia de ADN a procesar.
+        Returns:
+            0 (int): si encuentra caracteres no validos.
+            1 (int): si no encuentra caracteres validos. 
+    '''
     not_dna = re.finditer("[^ATGC]+", dna)
     matches = len([*re.finditer("[^ATGC]+", dna)])
     if matches:
@@ -56,6 +66,14 @@ def evaluate(dna):
         return(1)
 
 def find_regions(dna, at=2):
+    '''
+    Evalua la existencia de regiones ricas en AT en una cadena de ADN.
+        Parameters:
+            dna (str): secuencia de ADN a procesar.
+            at (int): tamaño minimo de las regiones ricas en AT a buscar, por default 2.
+        Returns:
+            0 (int): Termina la evaluacion de la secuencia. 
+    '''
     at_rich = re.finditer("A+|T+",dna)
     matches = len([*re.finditer("A+|T+", dna)])
     if matches:
@@ -66,6 +84,7 @@ def find_regions(dna, at=2):
         print("No se encontraron regiones ricas en AT")
     return(0)
 
+# Llamamos a nuestras funciones.
 if evaluate(dna):
     if args.search:
         ans = find_regions(dna,args.search)
