@@ -45,23 +45,32 @@ with open(args.file, "r") as seq_file:
     dna = seq_file.read().upper()
     
 def evaluate(dna):
-    not_dna = re.search("[^ATGC]+", dna)
+    not_dna = re.finditer("[^ATGC]+", dna)
     if(not_dna):
-        print(f"Existen caracteres no validos en tu archivo, en las coordenadas: {not_dna.span()}")
+        for invalid in not_dna:
+            print(f"Existen caracteres invalidos en tu archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
         return(0)
     else:
         return(1)
 
 def find_regions(dna, at=2):
-    at_rich = re.findall("A+|T+",dna)
-    at_regions = [islas for islas in at_rich if len(islas) >= at]
-    print(at_regions)
-            
-go_on = evaluate(dna)
+    at_rich = re.finditer("A+|T+",dna)
+    #for islas in at_rich:
+        #if len(islas.group()) >= at:
+            #print(f"Se encontro esta region rica en AT {islas.group()} en la posicion {islas.span()}")
+    return(0)
+               
+#go_on = evaluate(dna)
 
-if go_on:
+if evaluate(dna):
     if args.search:
         ans = find_regions(dna,args.search)
+        print(ans)
     else:
         ans = find_regions(dna)
-        
+        print(ans)
+
+#at_rich = re.finditer("A+|T+",dna)
+#for islas in at_rich:
+#    if len(islas.group()) >= 2:
+#            print(f"Se encontro esta region rica en AT {islas.group()} en la posicion {islas.span()}")
