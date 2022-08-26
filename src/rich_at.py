@@ -53,8 +53,8 @@ def evaluate(dna):
         Parameters:
             dna (str): secuencia de ADN a procesar.
         Returns:
-            0 (int): si encuentra caracteres no validos.
-            1 (int): si no encuentra caracteres validos. 
+            0 (int): si encuentra caracteres invalidos.
+            1 (int): si no encuentra caracteres invalidos. 
     '''
     not_dna = re.finditer("[^ATGC]+", dna)
     matches = len([*re.finditer("[^ATGC]+", dna)])
