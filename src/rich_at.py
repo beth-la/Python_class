@@ -60,7 +60,7 @@ def evaluate(dna):
     matches = len([*re.finditer("[^ATGC]+", dna)])
     if matches:
         for invalid in not_dna:
-            print(f"Existen caracteres invalidos en tu archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
+            print(f"Existen caracteres invalidos en el archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
         return(0)
     else:
         return(1)
@@ -74,12 +74,16 @@ def find_regions(dna, at=2):
         Returns:
             0 (int): Termina la evaluacion de la secuencia. 
     '''
-    at_rich = re.finditer("A+|T+",dna)
+    at_rich = re.finditer("[AT]+",dna)
     matches = len([*re.finditer("A+|T+", dna)])
     if matches:
+        count_at = 0
         for islas in at_rich:
             if len(islas.group()) >= at:
+                count_at += 1
                 print(f"Se encontro esta region rica en AT: {islas.group()} en la posicion {islas.span()}")
+        if not count_at:
+            print(f"No se encontraron regiones ricas en AT = {at}")            
     else:
         print("No se encontraron regiones ricas en AT")
     return(0)
