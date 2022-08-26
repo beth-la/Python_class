@@ -15,6 +15,7 @@ Category
     
 Usage
     Python rich_at.py -f path/to/file [-s ] 
+    py .\src\rich_at.py -f data/ADN_at.txt -s 4
         
 Arguments
     -h --help
@@ -46,7 +47,8 @@ with open(args.file, "r") as seq_file:
     
 def evaluate(dna):
     not_dna = re.finditer("[^ATGC]+", dna)
-    if  type(not_dna) is str:
+    matches = len([*re.finditer("[^ATGC]+", dna)])
+    if matches:
         for invalid in not_dna:
             print(f"Existen caracteres invalidos en tu archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
         return(0)
@@ -55,20 +57,14 @@ def evaluate(dna):
 
 def find_regions(dna, at=2):
     at_rich = re.finditer("A+|T+",dna)
-    #if type(at_rich) is str:
-    #for islas in at_rich:
-        #if islas is not str:
-        #    print("No se encontraron regiones")
-    #    print(type(islas.group))
-    #    if len(islas.group()) >= at:
-    #        print(f"Se encontro esta region rica en AT {islas.group()} en la posicion {islas.span()}")
-    #else:
-        #print(at_rich)
-        #print("No se encontraron regiones ricas en AT")
+    matches = len([*re.finditer("A+|T+", dna)])
+    if matches:
+        for islas in at_rich:
+            if len(islas.group()) >= at:
+                print(f"Se encontro esta region rica en AT: {islas.group()} en la posicion {islas.span()}")
+    else:
+        print("No se encontraron regiones ricas en AT")
     return(0)
-
-prueba = evaluate(dna)
-print(prueba)
 
 if evaluate(dna):
     if args.search:
