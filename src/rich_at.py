@@ -5,7 +5,7 @@ Version
     1.0
     
 Author 
-    Lopez Angeles Brenda E. 
+    Lopez Angeles Brenda Elizabeth.
     
 Descripcion
     Programa que busca regiones ricas en AT
