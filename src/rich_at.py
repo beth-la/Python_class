@@ -14,13 +14,15 @@ Category
     DNA sequence
     
 Usage
-    Python rich_at.py -f path/to/file [-s ] 
-    py .\src\rich_at.py -f data/ADN_at.txt -s 4
+    Python .\src\rich_at.py [-h] -f path/to/file [-s SEARCH]
+    python .\src\rich_at.py -f data/ADN_at.txt -s 4
         
 Arguments
-    -h --help
-    -f --file 
-    -s --search
+    -h, --help
+    -f --file, --file path/to/file 
+                Archivo con secuencia de ADN
+    -s SEARCH, --search SEARCH
+                Tamaño minimo de las regiones de AT 
     
 See also
     None
@@ -37,7 +39,7 @@ arg_parser.add_argument("-f", "--file",
                     required=True)
          
 arg_parser.add_argument("-s", "--search",
-                    help="cantidad minima de AT a buscar",
+                    help="Tamaño minimo de las regiones de AT",
                     type=int,
                     required=False)
 
