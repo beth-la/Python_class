@@ -115,9 +115,9 @@ def traducction(secuencia):
     
 def evaluate(rna):
     '''
-    Evalua si el archivo contiene algun caracter diferente a los permitidos [ATGC].
+    Evalua si el archivo contiene algun caracter diferente a los permitidos [AUGC].
         Parameters:
-            dna (str): secuencia de ADN a procesar.
+            dna (str): secuencia de ARN a procesar.
         Returns:
             0 (int): si encuentra caracteres invalidos.
             1 (int): si no encuentra caracteres invalidos. 
