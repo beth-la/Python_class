@@ -1,5 +1,5 @@
 ''' Name 
-    search AT rich regions
+    
     
 Version
     1.0
@@ -14,8 +14,7 @@ Category
     DNA sequence
     
 Usage
-    Python .\src\rich_at.py [-h] -f path/to/file [-s SEARCH]
-    python .\src\rich_at.py -f data/ADN_at.txt -s 4
+
         
 Arguments
     -h, --help
