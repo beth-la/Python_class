@@ -1,5 +1,5 @@
 ''' Name 
-    
+    ARN to protein
     
 Version
     1.0
@@ -11,7 +11,7 @@ Descripcion
     Programa que busca regiones ricas en AT
     
 Category
-    DNA sequence
+    Aminoacid sequence
     
 Usage
 
@@ -19,9 +19,7 @@ Usage
 Arguments
     -h, --help
     -f --file, --file path/to/file 
-                Archivo con secuencia de ADN
-    -s SEARCH, --search SEARCH
-                Tamaño minimo de las regiones de AT 
+
     
 See also
     None
@@ -41,3 +39,5 @@ gencode = {
     'TCG':'S', 'TCT':'S', 'TTC':'F', 'TTT':'F', 'TTA':'L',
     'TTG':'L', 'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
     'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'}
+    
+ARN = 'AACCTTGGGGG'

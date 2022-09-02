@@ -16,7 +16,7 @@ Functions
     aminoacid_per
     
 ''' 
-
+import re 
 def aminoacid_per(aminoacid_sequence, aminoacid_list = ['A','I','L','M','F','W','Y','V']):
     '''
     Calcula el porcentaje de aminoacidos en una seuencia 
@@ -112,3 +112,21 @@ def traducction(secuencia):
         if codon == 'UAA' or codon == 'UGA' or codon == 'UAG':
             peptid.append('-STOP-')
     return("".join(peptid))
+    
+def evaluate(rna):
+    '''
+    Evalua si el archivo contiene algun caracter diferente a los permitidos [ATGC].
+        Parameters:
+            dna (str): secuencia de ADN a procesar.
+        Returns:
+            0 (int): si encuentra caracteres invalidos.
+            1 (int): si no encuentra caracteres invalidos. 
+    '''
+    not_dna = re.finditer("[^AUGC]+", rna)
+    matches = len([*re.finditer("[^AUGC]+", rna)])
+    if matches:
+        for invalid in not_dna:
+            print(f"Existen caracteres invalidos en el archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
+        return(0)
+    else:
+        return(1)
