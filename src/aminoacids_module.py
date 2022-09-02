@@ -148,3 +148,7 @@ def evaluate_dna(dna):
         return(0)
     else:
         return(1)
+
+def codon_format(ARN):    
+    codon_seq = [ARN[i:i+3] for i in range(0,len(ARN),3)]
+    return(codon_seq)
