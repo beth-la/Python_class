@@ -28,7 +28,7 @@ See also
 import argparse
 from posixpath import split
 import re 
-from aminoacids_module import evaluate
+from aminoacids_module import evaluate_rna
 
 # Paso de argumentos mediante argparse
 arg_parser = argparse.ArgumentParser(description="Translating ARN to protein")
@@ -71,5 +71,5 @@ def codon_format(ARN):
     codon_seq = [ARN[i:i+3] for i in range(0,len(ARN),3)]
     return(codon_seq)
 
-if evaluate(ARN):
+if evaluate_rna(ARN):
     print()
