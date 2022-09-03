@@ -149,6 +149,25 @@ def evaluate_dna(dna):
     else:
         return(1)
 
-def codon_format(ARN):    
+def codon_format(ARN): 
+    '''
+    Da formato de codones a una secuencia de ARN.
+        Parameters:
+            ARN (str): secuencia de ARN a formatear.
+        Returns:
+            codon_seq (list): lista con los codones de la secuencia. 
+    '''
     codon_seq = [ARN[i:i+3] for i in range(0,len(ARN),3)]
     return(codon_seq)
+
+def translate_dna(ADN):
+    '''
+    Convierte una secuencia de ADN a ARN.
+        Parameters:
+            ADN (str): secuencia de ADN a traducir.
+        Returns:
+            ARN_seq (str): secuencia de ARN. 
+    '''
+    ARN_dic = {'A' : 'U','T' : 'A','C' : 'G','G' : 'C'}
+    ARN_seq = [ARN_dic.get(nucleotide) for nucleotide in ADN]
+    return(''.join(ARN_seq))
