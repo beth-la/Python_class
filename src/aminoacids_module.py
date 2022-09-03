@@ -131,24 +131,6 @@ def evaluate_rna(rna):
     else:
         return(1)
 
-def evaluate_dna(dna):
-    '''
-    Evalua si el archivo contiene algun caracter diferente a los permitidos [ATGC].
-        Parameters:
-            dna (str): secuencia de ADN a procesar.
-        Returns:
-            0 (int): si encuentra caracteres invalidos.
-            1 (int): si no encuentra caracteres invalidos. 
-    '''
-    not_dna = re.finditer("[^ATGC]+", dna)
-    matches = len([*re.finditer("[^ATGC]+", dna)])
-    if matches:
-        for invalid in not_dna:
-            print(f"Existen caracteres invalidos en el archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
-        return(0)
-    else:
-        return(1)
-
 def codon_format(ARN): 
     '''
     Da formato de codones a una secuencia de ARN.
