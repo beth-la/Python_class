@@ -126,7 +126,7 @@ def evaluate_rna(rna):
     matches = len([*re.finditer("[^AUGC]+", rna)])
     if matches:
         for invalid in not_dna:
-            print(f"Existen caracteres invalidos en el archivo: {invalid.group()} en las coordenadas: {invalid.span()}")
+            print(f"Existen caracteres invalidos: {invalid.group()} en las coordenadas: {invalid.span()}")
         return(0)
     else:
         return(1)

@@ -30,6 +30,7 @@ See also
 '''
 # Importamos librerias
 import argparse
+from sys import flags
 from aminoacids_module import evaluate_rna
 from aminoacids_module import translate_dna
 from ADN_module import evaluate_dna
@@ -52,10 +53,12 @@ arg_parser.add_argument("-o", "--OUTPUT",
 
 arg_parser.add_argument("-p","--PRINT",
                     help = "Imprimir a pantalla la secuencia peptidica",
+                    action = 'store_true',
                     required= False)
 
 arg_parser.add_argument("-c","--CHANGEtoDNA",
                     help = "Si la secuencia es de ADN",
+                    action = 'store_true',
                     required= False)
 
 args = arg_parser.parse_args()
@@ -77,14 +80,15 @@ if args.FILE:
             
 if args.SEQUENCE:
     if args.CHANGEtoDNA:
-        ADN = args.SEQUENCE
+        ADN = args.SEQUENCE.upper()
         ARN = translate_dna(ADN)
     else:
-        ARN = args.SEQUENCE
+        ARN = args.SEQUENCE.upper()
 
 def arn_to_peptid(ARN):
     '''
     Funcion que convierte una secuencia de ARN a proteina.
+    Si encuentra una secuencia con un codon incompleto, agregara un "*"
         Parameters:
             ARN (str): secuencia de ARN a procesar.
         Returns:
