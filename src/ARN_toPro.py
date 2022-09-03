@@ -1,5 +1,5 @@
 ''' Name 
-    ARN to protein
+    ADN/ARN to protein
     
 Version
     1.0
@@ -8,37 +8,41 @@ Author
     Lopez Angeles Brenda Elizabeth.
     
 Descripcion
-    Programa que busca regiones ricas en AT
+    Programa que convierte una secuencia de ADN o ARN en una secuencia peptidica.
+    Por default, el programa convierte secuencias de ARN. 
     
 Category
     Aminoacid sequence
     
 Usage
-
+    Python ARN_toPro.py [-h] [-f path/to/file] [-s SEQUENCE] [-o OUTPUT] [-p PRINT] [-c CHANGETODNA]
         
 Arguments
     -h, --help
     -f --file, --file path/to/file 
-
+    -s SEQUENCE, --SEQUENCE 
+    -o OUTPUT, --OUTPUT 
+    -p PRINT, --PRINT
+    -c CHANCETODNA, --CHANGETODNA
     
 See also
     None
 '''
 # Importamos librerias
 import argparse
-from posixpath import split
-import re 
 from aminoacids_module import evaluate_rna
+from aminoacids_module import translate_dna
+from ADN_module import evaluate_dna
 
 # Paso de argumentos mediante argparse
 arg_parser = argparse.ArgumentParser(description="Translating ARN to protein")
 arg_parser.add_argument("-f", "--FILE",
                     metavar="path/to/file",
-                    help="Archivo con secuencia de ARN",
+                    help="Archivo con la secuencia de ARN o ADN",
                     required=False)
                     
 arg_parser.add_argument("-s", "--SEQUENCE",
-                    help="Secuencia de ARN",
+                    help="Secuencia de ARN o ADN",
                     type=str,
                     required=False)
                     
@@ -50,17 +54,42 @@ arg_parser.add_argument("-p","--PRINT",
                     help = "Imprimir a pantalla la secuencia peptidica",
                     required= False)
 
+arg_parser.add_argument("-c","--CHANGEtoDNA",
+                    help = "Si la secuencia es de ADN",
+                    required= False)
+
 args = arg_parser.parse_args()
 
-# Abrimos el archivo y extraemos su contenido
+# Abrimos el archivo y extraemos su contenido.
+# Si el usuario ingresa una secuencia de ADN, la convertimos a ARN llamando a la funcion del modulo creado.
+
 if args.FILE:
     with open(args.FILE, "r") as seq_file:
-        ARN = seq_file.read().upper()
+        if args.CHANGEtoDNA:
+            ADN = seq_file.read().upper()
+            if evaluate_dna(ADN):
+                ARN = translate_dna(ADN)
+        else:
+            ARN = seq_file.read().upper()
 
+# Si el usurio ingresa una secuencia por teclado
+# Si el usuario ingresa una secuencia de ADN, llamamos a la funcion translate_dna
+            
 if args.SEQUENCE:
-    ARN = args.SEQUENCE
+    if args.CHANGEtoDNA:
+        ADN = args.SEQUENCE
+        ARN = translate_dna(ADN)
+    else:
+        ARN = args.SEQUENCE
 
 def arn_to_peptid(ARN):
+    '''
+    Funcion que convierte una secuencia de ARN a proteina.
+        Parameters:
+            ARN (str): secuencia de ARN a procesar.
+        Returns:
+            peptide (str): secuencia peptidica generada. 
+    '''
     gencode = {
     'AUA':'I', 'AUC':'I', 'AUU':'I', 'AUG':'M', 'ACA':'T',
     'ACC':'T', 'ACG':'T', 'ACU':'T', 'AAC':'N', 'AAU':'N',
@@ -80,6 +109,10 @@ def arn_to_peptid(ARN):
     peptid = [gencode.get(codon, "*") for codon in codon_sequence]
     return(peptid)
 
+# Evaluamos si la secuencia contiene algun caracter incorrecto.
+# Si el usuario quiere un archivo como formato de salida. 
+# Si el usurio quiere imprimir la secuencia a pantalla.
+
 if evaluate_rna(ARN):
     peptid = arn_to_peptid(ARN)
     if args.OUTPUT:
@@ -89,10 +122,3 @@ if evaluate_rna(ARN):
         
     if args.PRINT:
         print(f"La secuencia proteica obtenida fue:\n{''.join(peptid)}")
-
-
-
-
-
-
-
