@@ -47,7 +47,7 @@ arg_parser.add_argument("-o", "--OUTPUT",
                     required=False)
 
 arg_parser.add_argument("-p","--PRINT",
-                    help = "Imprimir a pantalla",
+                    help = "Imprimir a pantalla la secuencia peptidica",
                     required= False)
 
 args = arg_parser.parse_args()
@@ -84,7 +84,12 @@ if evaluate_rna(ARN):
     peptid = arn_to_peptid(ARN)
     if args.OUTPUT:
         output_file = open(args.OUTPUT,'w')
-        output_file.write("".join(peptid))
+        output_file.write(f"La secuencia proteica obtenida fue:\n{''.join(peptid)}")
+        output_file.close()
+        
+    if args.PRINT:
+        print(f"La secuencia proteica obtenida fue:\n{''.join(peptid)}")
+
 
 
 
