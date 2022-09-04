@@ -2,7 +2,7 @@
     ADN/ARN to protein
     
 Version
-    1.0
+    1.5
     
 Author 
     Lopez Angeles Brenda Elizabeth.
@@ -16,6 +16,7 @@ Category
     
 Usage
     Python ARN_toPro.py [-h] [-f path/to/file] [-s SEQUENCE] [-o OUTPUT] [-p PRINT] [-c CHANGETODNA]
+    Python ARN_toPro.py -f data/ARN_protein.txt -o sata/output_peptid.txt -p 
         
 Arguments
     -h, --help
