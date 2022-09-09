@@ -47,7 +47,7 @@ args = arg_parser.parse_args()
 
 # Abrimos el archivo y extraemos su contenido
 with open(args.file, "r") as seq_file:
-    dna = seq_file.read().upper()
+    dna = seq_file.read().rstrip('\n').upper()
 
 def evaluate(dna):
     '''
