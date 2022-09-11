@@ -1,165 +1,129 @@
-'''
-Module name
-    ADN module
-
-Description 
-    Modulo que contiene funciones que nos permiten trabajar con secuencias de ADN, contar y obtener 
-    porcentajes de nucleotidos; obtener archivos en formato fasta, etc. 
+''' Name
+    ADN/ARN to protein
 
 Version
-    1.0
-    
-Author 
-    Lopez A. Brenda E.
+    1.5
 
-Functions
-    at_content
-    count_dna
-    delete_adapters 
-    fasta_files
-    gc_content
-    nucleotide_percentage 
-    
+Author
+    Lopez Angeles Brenda Elizabeth.
+
+Descripcion
+    Programa que convierte una secuencia de ADN o ARN en una secuencia peptidica.
+    Por default, el programa convierte secuencias de ARN.
+
+Category
+    Aminoacid sequence
+
+Usage
+    Python ARN_toPro.py [-h] [-f path/to/file] [-s SEQUENCE] [-o OUTPUT] [-p PRINT] [-c CHANGETODNA]
+    Python ARN_toPro.py -f data/ARN_protein.txt -o sata/output_peptid.txt -p
+
+Arguments
+    -h, --help
+    -f --file, --file path/to/file
+    -s SEQUENCE, --SEQUENCE
+    -o OUTPUT, --OUTPUT
+    -p PRINT, --PRINT
+    -c CHANCETODNA, --CHANGETODNA
+
+See also
+    None
 '''
-import re
-def count_dna(dna):
-    '''
-    Regresa el conteo de nucleotidos en una secuencia de ADN 
-        Parameters:
-            adn (str): secuencia de ADN a procesar
-        Returns:
-            adn_count (list): lista que contiene cuenta de nucleotidos en el siguiente orden: (A, T, G, C) 
-    '''
-    dna_count = []
-    dna_count.append(dna.upper().count('A'))
-    dna_count.append(dna.upper().count('T'))
-    dna_count.append(dna.upper().count('G'))
-    dna_count.append(dna.upper().count('C'))
-    return(dna_count)
+# Importamos librerias
+import argparse
+from sys import flags
+from aminoacids_module import evaluate_rna
+from aminoacids_module import translate_dna
+from ADN_module import evaluate_dna
 
-def at_content(pathfile, flag_round = 0):
-    '''
-    Regresa la proporcion de AT en una secuencia de ADN
-        Parameters:
-            pathfile (str): ruta del archivo que contiene la cadena de ADN a procesar
-            flag_round (int): parametro opcional que permite redondear el resultado obtenido
-        Returns:
-            at_content (float): Proporcion de AT en la secuencia
-    '''
-    with open(pathfile, "r") as seq_file:
-        my_dna = seq_file.read()
-    
-    length = len(my_dna) 
-    a_count = my_dna.count('A') 
-    t_count = my_dna.count('T')
+# Paso de argumentos mediante argparse
+arg_parser = argparse.ArgumentParser(description="Translating ARN to protein")
+arg_parser.add_argument("-f", "--FILE",
+                    metavar="path/to/file",
+                    help="Archivo con la secuencia de ARN o ADN",
+                    required=False)
 
-    if flag_round:
-        at_content = round((a_count + t_count) / length, flag_round)
+arg_parser.add_argument("-s", "--SEQUENCE",
+                    help="Secuencia de ARN o ADN",
+                    type=str,
+                    required=False)
+
+arg_parser.add_argument("-o", "--OUTPUT",
+                    help="Archivo de salida",
+                    required=False)
+
+arg_parser.add_argument("-p","--PRINT",
+                    help = "Imprimir a pantalla la secuencia peptidica",
+                    action = 'store_true',
+                    required= False)
+
+arg_parser.add_argument("-c","--CHANGEtoDNA",
+                    help = "Si la secuencia es de ADN",
+                    action = 'store_true',
+                    required= False)
+
+args = arg_parser.parse_args()
+
+# Abrimos el archivo y extraemos su contenido.
+# Si el usuario ingresa una secuencia de ADN, la convertimos a ARN llamando a la funcion del modulo creado.
+
+if args.FILE:
+    with open(args.FILE, "r") as seq_file:
+        if args.CHANGEtoDNA:
+            ADN = seq_file.read().rstrip('\n').upper()
+            if evaluate_dna(ADN):
+                ARN = translate_dna(ADN)
+        else:
+            ARN = seq_file.read().rstrip('\n').upper()
+
+# Si el usurio ingresa una secuencia por teclado
+# Si el usuario ingresa una secuencia de ADN, llamamos a la funcion translate_dna
+
+if args.SEQUENCE:
+    if args.CHANGEtoDNA:
+        ADN = args.SEQUENCE.rstrip('\n').upper()
+        ARN = translate_dna(ADN)
     else:
-        at_content = ((a_count + t_count) / length)
-        
-    return(at_content)
+        ARN = args.SEQUENCE.rstrip('\n').upper()
 
-def gc_content(pathfile, flag_round = 0):
+def arn_to_peptid(ARN):
     '''
-    Regresa la proporcion de GC en una secuencia de ADN
+    Funcion que convierte una secuencia de ARN a proteina.
+    Si encuentra una secuencia con un codon incompleto, agregara un "*"
         Parameters:
-            pathfile (str): ruta del archivo que contiene la cadena de ADN a procesar
-            flag_round (int): parametro opcional que permite redondear el resultado obtenido
+            ARN (str): secuencia de ARN a procesar.
         Returns:
-            gc_content (float): Proporcion de GC en la secuencia
+            peptide (str): secuencia peptidica generada.
     '''
-    with open(pathfile, "r") as seq_file:
-        my_dna = seq_file.read()
-    
-    length = len(my_dna) 
-    g_count = my_dna.count('G') 
-    c_count = my_dna.count('C')
+    gencode = {
+    'AUA':'I', 'AUC':'I', 'AUU':'I', 'AUG':'M', 'ACA':'T',
+    'ACC':'T', 'ACG':'T', 'ACU':'T', 'AAC':'N', 'AAU':'N',
+    'AAA':'K', 'AAG':'K', 'AGC':'S', 'AGU':'S', 'AGA':'R',
+    'AGG':'R', 'CUA':'L', 'CUC':'L', 'CUG':'L', 'CUU':'L',
+    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCU':'P', 'CAC':'H',
+    'CAU':'H', 'CAA':'Q', 'CAG':'Q', 'CGA':'R', 'CGC':'R',
+    'CGG':'R', 'CGU':'R', 'GUA':'V', 'GUC':'V', 'GUG':'V',
+    'GUU':'V', 'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCU':'A',
+    'GAC':'D', 'GAU':'D', 'GAA':'E', 'GAG':'E', 'GGA':'G',
+    'GGC':'G', 'GGG':'G', 'GGU':'G', 'UCA':'S', 'UCC':'S',
+    'UCG':'S', 'UCU':'S', 'UUC':'F', 'UUU':'F', 'UUA':'L',
+    'UUG':'L', 'UAC':'Y', 'UAU':'Y', 'UAA':'_', 'UAG':'_',
+    'UGC':'C', 'UGU':'C', 'UGA':'_', 'UGG':'W'}
 
-    if flag_round:
-        gc_content = round((g_count + c_count) / length, flag_round)
-    else:
-        gc_content = ((g_count + c_count) / length)
-        
-    return(gc_content)
+    codon_sequence = [ARN[i:i+3] for i in range(0,len(ARN),3)]
+    peptid = [gencode.get(codon, "*") for codon in codon_sequence]
+    return(peptid)
 
-def nucleotide_percentage(filepath):
-    '''
-    Obtiene el porcentaje de nucleotidos (AT y GC) en una secuencia de ADN
-        Parameters:
-            pathfile (str): ruta del archivo que contiene la cadena de ADN a procesar
-        Returns:
-            percentage (list): Lista que contiene el porcentage de aminoacidos en el siguiente orden: (AT, GC)
-    '''  
-    with open(filepath) as archivo:
-        secuencia_adn  = archivo.read()
-        longitud_secuencia = len(secuencia_adn)
-        
-    percentage = []
-    percentage_AT = ((secuencia_adn.count('A') + secuencia_adn.count('T')) * 100 )/(longitud_secuencia)
-    percentage_GC = (100 - percentage_AT)
-    percentage.append(percentage_AT)
-    percentage.append(percentage_GC)
-    
-    return(percentage)
+# Evaluamos si la secuencia contiene algun caracter incorrecto.
+# Si el usuario quiere un archivo como formato de salida.
+# Si el usurio quiere imprimir la secuencia a pantalla.
 
-def delete_adapters(filepath_in, filepath_out = "data/file_adapters"):
-    '''
-    Elimina adaptadores de una secuencia de ADN 
-        Parameters:
-            pathfile_in (str): ruta del archivo que contiene la cadena de ADN a procesar
-            pathfile_out (str): ruta del archivo final en donde se escribiran las secuencias de ADN sin adaptadores
-        Returns:
-            filepath_out (str): ruta del archivo final
-    '''
-    with open(filepath_in,'r') as archivo:
-        secuencias= [line for line in archivo]
-        sin_adaptadores= []
-    
-    for i in range(0,len(secuencias)):
-        sin_adaptadores.append(secuencias[i][14:])
+if evaluate_rna(ARN):
+    peptid = arn_to_peptid(ARN)
+    if args.OUTPUT:
+        output_file = open(args.OUTPUT,'w')
+        output_file.write(f"La secuencia proteica obtenida fue:\n{''.join(peptid)}")
+        output_file.close()
 
-    my_file= open(filepath_out,'w')
-    my_file.write(''.join(sin_adaptadores))
-    my_file.close()
-    return(filepath_out)
-
-def fasta_files(filepath_in, filepath_out = "data/fasta_file.fasta"):
-    '''
-    Genera un archivo con formato fasta.
-        Parameters:
-            filepath_in (str): ruta del archivo que contiene la secuencia de ADN 
-            filepath_out (str): ruta del archivo final que contendra el formato fasta deseado
-        Returns:
-            filepath_out (str): ruta del archivo final
-    '''
-    with open(filepath_in, 'r') as archivo:
-        secuencias = [line for line in archivo]
-    
-    format_seq = [secuencia[5:].upper().replace('-','') for secuencia in secuencias]
-
-    my_file = open(filepath_out, 'w')
-    
-    for i in range(0,len(format_seq)):
-        my_file.write(" > seq_" + str(i+1) + "\n" + format_seq[i])
-    my_file.close()
-    
-    return(filepath_out)
-    
-def evaluate_dna(dna):
-    '''
-    Evalua si el archivo contiene algun caracter diferente a los permitidos [ATGC].
-        Parameters:
-            dna (str): secuencia de ADN a procesar.
-        Returns:
-            0 (int): si encuentra caracteres invalidos.
-            1 (int): si no encuentra caracteres invalidos. 
-    '''
-    not_dna = re.finditer("[^ATGC]+", dna)
-    matches = len([*re.finditer("[^ATGC]+", dna)])
-    if matches:
-        for invalid in not_dna:
-            print(f"Existen caracteres invalidos: {invalid.group()} en las coordenadas: {invalid.span()}")
-        return(0)
-    else:
-        return(1)
+    if args.PRINT:
+        print(f"La secuencia proteica obtenida fue:\n{''.join(peptid)}")
